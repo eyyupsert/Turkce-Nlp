@@ -13,7 +13,7 @@ def dosyaSec():
                             filetypes=(("text files","*.txt"),("all files","*.*")))
     return secim
 
-def turkceKarekterDuzeltme(duzeltilecekkelime):
+def turkceKarekterDuzeltme(duzeltilecekkelime): # kelimelerin içerisinde çözümlenemeyen kelimelerin Türkçe karşılıkları ile değişmesi işlemi
     try:
         gelenkelime = duzeltilecekkelime
         gelenkelime=gelenkelime.replace("Ãœ","Ü")
@@ -91,26 +91,26 @@ def kelimeDosyaYaz(dosyayol):
         dosya.write(kelimeKokDosya)
         dosya.write(" ")
     dosya.close()
-"""
-dosyayolu1 = dosyaSec()
-fileOpenDef(dosyayolu1)
-kokBul()
-for kelimeKokDosya in kelimeListesiKok:
-        print(kelimeKokDosya+" ")
-yenidosyayol = "C:/Users/eyyup/Desktop/stajproje/TextDosyalariKok/dilbilimi/veriler/1945-1962/"+ sayi +".txt"
-kelimeDosyaYaz(yenidosyayol)
-"""
-for x in range(1,501):
+#Seçilen dosyadan kök bulma için bu kod satırını aktif edebilirsiniz
+#dosyayolu1 = dosyaSec()
+#fileOpenDef(dosyayolu1)
+#kokBul()
+#for kelimeKokDosya in kelimeListesiKok:
+    #print(kelimeKokDosya+" ")
+#yenidosyayol = "C:/Users/eyyup/Desktop/stajproje/TextDosyalariKok/dilbilimi/veriler/1945-1962/"+ sayi +".txt"
+#kelimeDosyaYaz(yenidosyayol)
+
+for x in range(1,501): #Verilen yolda okunması gereken dosya sayısı
 
     sayi = str(x)
-    dosyayolu1 = "C:\\Users\\eyyup\\Desktop\\stajproje\\TextDosyalari\\dilbilimi\\veriler\\2000-2019\\"+sayi +".txt"
-    dosyayolu2 = "C:\\Users\\eyyup\\Desktop\\stajproje\\TextDosyalariKok\\dilbilimi\\veriler\\2000-2019\\"+sayi +".txt"
+    dosyayolu1 = "C:\\Users\\eyyup\\Desktop\\stajproje\\TextDosyalari\\dilbilimi\\veriler\\2000-2019\\"+sayi +".txt" #Okunacak dosya yolu
+    dosyayolu2 = "C:\\Users\\eyyup\\Desktop\\stajproje\\TextDosyalariKok\\dilbilimi\\veriler\\2000-2019\\"+sayi +".txt" #Kökleri bulunan kelimelerin yazılacağı yol
     fileOpenDef(dosyayolu1)
     yenidict = "dict"+sayi
     kokBul(yenidict)
     for kelimeKokDosya in kelimeListesiKok:
         print(kelimeKokDosya+" ")
     kelimeDosyaYaz(dosyayolu2)
-    kelimeListesiOrj.clear()
-    kelimeListesiKok.clear()
+    kelimeListesiOrj.clear() #Listelerin içindeki verileri her dosyaın okunmasından sonra temizliyoruz. Aşırı yüklenme olup hata almamak için
+    kelimeListesiKok.clear() #Listelerin içindeki verileri her dosyaın okunmasından sonra temizliyoruz. Aşırı yüklenme olup hata almamak için
     #time.sleep(1)
